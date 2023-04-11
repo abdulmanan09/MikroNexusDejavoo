@@ -65,13 +65,13 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/proceed"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:layout_marginBottom="10dp"
         android:text="@string/proceed"
         android:textAllCaps="false"
 
-        app:backgroundTint="@android:color/transparent"
-        android:textColor="@color/white"
+        app:backgroundTint="@android:color/white"
+        android:textColor="@color/bg_color_1"
         android:textSize="14sp"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"

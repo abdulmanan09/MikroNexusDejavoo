@@ -1,6 +1,7 @@
 package com.mikronexus.dejavoo
 
 import android.annotation.SuppressLint
+import android.content.ComponentName
 import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
@@ -32,19 +33,18 @@ class MainActivity : AppCompatActivity() {
         date = dateFormat.format(calendar.time)
         dateTime.text = date
 
-
         textView.text = "" + packageName
         button.setOnClickListener {
-            var i = Intent(Intent.ACTION_MAIN)
-            val managerclock = packageManager
-            if (managerclock.getLaunchIntentForPackage("com.mikronexus.cfa") != null) {
-                i = managerclock.getLaunchIntentForPackage("com.mikronexus.cfa")!!
-                i.addCategory(Intent.CATEGORY_LAUNCHER)
-                startActivity(i)
-            } else {
+            val intent = Intent(Intent.ACTION_MAIN)
+            intent.component =
+                ComponentName("com.mikronexus.cfa", "com.mikronexus.cfa.MainActivity")
+            try {
+                startActivity(intent)
+            } catch (e: Exception) {
                 Toast.makeText(
                     this, "Please Install the other Application to Switch", Toast.LENGTH_SHORT
                 ).show()
+                e.printStackTrace()
             }
         }
     }
